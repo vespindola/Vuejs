@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computed Properties VueJs</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Computed Properties VueJs</h1>
+    <h2>Palavras de Trás para Frente</h2>
+    <br>
+    <strong>{{message}}</strong><br>  
+    {{ message.split('').reverse().join('') }}
+    
+    <br>
+    <br>
+
+    <strong>{{message2}}</strong><br>
+    {{ message2.split('').reverse().join('') }}
+
+    <br>
+    <br>
+    <h1>Caixa Alta</h1>
+    <strong>{{name}}</strong><br>
+    {{UpperCase}}
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Word!',
+        message2: 'Vinicius Espindola',
+        name: 'José'
+      },
+      computed: {
+        reversedMessage: function () {
+          return this.message.split('').reverse().join('')
+          return this.message2.split('').reverse().join('')
+        },
+        UpperCase() {
+          return this.name.toUpperCase()
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
